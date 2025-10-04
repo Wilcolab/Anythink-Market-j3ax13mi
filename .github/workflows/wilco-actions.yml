@@ -23,10 +23,9 @@ jobs:
         with:
           mongodb-version: "4.4"
 
-      - name: Export Wilco secret
-        uses: oNaiPs/secrets-to-env-action@v1
+      - uses: oNaiPs/secrets-to-env-action@v1
         with:
-          secrets: '{"WILCO_ENGINE_URL": "${{ secrets.WILCO_ENGINE_URL }}"}'
+          secrets: ${{ toJSON(secrets) }}
 
       - name: Wilco checks
         id: Wilco
