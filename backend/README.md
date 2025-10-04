@@ -2,6 +2,18 @@
 
 The Anythink Market backend is Node web app written with [Express](https://expressjs.com/)
 
+## Configuration
+
+The application uses environment variables for configuration. Copy `.env.example` to `.env` and update the values:
+
+- `MONGODB_URI` - MongoDB connection string
+- `SECRET` - JWT secret for authentication tokens (required for production)
+- `SESSION_SECRET` - Session secret for express-session (required for production)
+- `PORT` - Application port (default: 3000)
+- `NODE_ENV` - Node environment (development, production, test)
+
+**Security Note**: In production, always set `SECRET` and `SESSION_SECRET` to strong, random values. If not set, the application will generate random secrets on each restart, which will invalidate existing sessions and tokens.
+
 ## Dependencies
 
 - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) - For generating JWTs used by authentication
